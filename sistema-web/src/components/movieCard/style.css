@@ -1,0 +1,19 @@
+.card{
+	display: inline-block;
+	max-width: 175px;
+	margin-right: 50px;
+	margin-bottom: 50px;
+}
+
+.card img{
+	width: 175px;
+	height: auto;
+}
+
+.card p {
+	margin-top: 15px;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+}

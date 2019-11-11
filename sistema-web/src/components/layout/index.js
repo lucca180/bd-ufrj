@@ -8,7 +8,7 @@ class Layout extends Component {
     this.state = {
     }
   }
-  
+
 
   render() {
     return (
@@ -17,7 +17,7 @@ class Layout extends Component {
         <div className="leftColumn">
           <div class="section">
             <p className="sectionName">Navegar</p>
-            <p className="sectionItem">Descobrir</p>
+            <p className="sectionItem selectedItem">Descobrir</p>
             <p className="sectionItem">TV e Filmes</p>
             <p className="sectionItem">Populares</p>
             <p className="sectionItem">Listas</p>
@@ -25,7 +25,7 @@ class Layout extends Component {
 
           <div class="section categories">
             <p className="sectionName">Gêneros</p>
-            <p className="sectionItem">Ação</p>
+            <p className="sectionItem selectedItem">Ação</p>
             <p className="sectionItem">Comédia</p>
             <p className="sectionItem">Super Poderes</p>
             <p className="sectionItem">Escola</p>

@@ -9,13 +9,13 @@ class Home extends Component {
     this.state = {
     }
   }
-  
+
 
   render() {
     return (
       <Layout>
         <h2>Recomendado Para Você</h2>
-        <MovieCard/>  <MovieCard/> <MovieCard/> <MovieCard/> <MovieCard/> <MovieCard/> <MovieCard/>
+        <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
       </Layout>
     );
   }

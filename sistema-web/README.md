@@ -17,11 +17,33 @@ cd bd-ufrj
 cd sistema-web
 yarn
 ```
+Se não houver ***yarn*** pode usar ***npm i*** mas eu vou ficar chateado :(
 
 ## Rodando Localmente
 
 ```bash
 yarn start
 ```
+Se não houver ***yarn*** pode usar ***npm start*** mas eu vou ficar chateado também :(
 
-Esse projeto usa o [create-react-app](https://github.com/facebook/create-react-app) se quiser dar uma olhada...
+## Explicando minimamente as estruturas
+**Primeiro, ignore tudo que está fora da pasta "/src"**
+
+**Segundo, dentro da pasta "/src", ignore tudo que não está nas pastas "screens", "components" e "assets"**
+
+- */assets* - pasta para colocar todas as imagens e outras mídias que o sistema web vai utilizar sem buscar da internet
+- */components* - pasta com os componentes reutilizáveis (são tipo funções que geram elementos da interface)
+- */screens* - pasta com as telas do sistema web propriamente dito.
+
+Dentro de */components*  e */screens* há outras pastas e cada uma delas possui arquivos chamados **index.js** e **style.css**
+
+- *index.js* - possui toda a logica e a programação do componente/tela.
+- *style.css* - possui todas as regras de estilos em CSS da tela ou do componente.
+
+
+## Alguns Guias de React / JS
+- https://pt-br.reactjs.org/docs/introducing-jsx.html (e o resto da documentação)
+- https://willianjusten.com.br/fundamentos-javascript-antes-de-aprender-react/
+- https://tableless.com.br/criando-sua-primeira-aplicacao-web-com-react/
+- https://braziljs.org/artigos/react-do-basico-ao-avancado-parte-1/
+

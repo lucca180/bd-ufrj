@@ -7,13 +7,13 @@ class MovieCard extends Component {
     this.state = {
     }
   }
-  
+
 
   render() {
     return (
       <div className="card">
-      	<img src="https://cdn.myanimelist.net/images/anime/1315/102961.jpg"/>
-      	<p>Boku no Hero Academia</p>
+      	<img src={this.props.url}/>
+      	<p>{this.props.name}</p>
       </div>
     );
   }

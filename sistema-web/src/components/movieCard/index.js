@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import './style.css';
+
 class MovieCard extends Component {
   constructor() {
     super();
@@ -11,8 +11,8 @@ class MovieCard extends Component {
 
   render() {
     return (
-      <div className="card">
-      	<img src={this.props.url}/>
+      <div onClick={this.props.onClick} className="card">
+      	<img src={this.props.url ? this.props.url : "https://via.placeholder.com/225x319.png"}/>
       	<p>{this.props.name}</p>
       </div>
     );

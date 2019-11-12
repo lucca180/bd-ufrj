@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "connected-react-router": "4.5.0",
+    "node-vibrant": "^3.1.4",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-redux": "5.1.2",

@@ -15,7 +15,7 @@ class Layout extends Component {
       <div className="container">
 
         <div className="leftColumn">
-          <div class="section">
+          <div className="section">
             <p className="sectionName">Navegar</p>
             <p className="sectionItem selectedItem">Descobrir</p>
             <p className="sectionItem">TV e Filmes</p>
@@ -23,7 +23,7 @@ class Layout extends Component {
             <p className="sectionItem">Listas</p>
           </div>
 
-          <div class="section categories">
+          <div className="section categories">
             <p className="sectionName">Gêneros</p>
             <p className="sectionItem selectedItem">Ação</p>
             <p className="sectionItem">Comédia</p>

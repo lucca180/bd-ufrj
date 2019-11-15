@@ -10,10 +10,11 @@ class MovieCard extends Component {
 
 
   render() {
+    const {name, url} = this.props;
     return (
       <div className="card">
-      	<img src={this.props.url}/>
-      	<p>{this.props.name}</p>
+      	<img alt={name} src={url}/>
+      	<p>{name}</p>
       </div>
     );
   }

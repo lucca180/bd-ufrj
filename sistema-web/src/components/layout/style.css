@@ -6,13 +6,17 @@
 }
 
 .leftColumn{
-	display: flex;
 	flex: 0 0 300px;
 	min-height: 100%;
 	background: #141c25;
 	padding: 50px;
+}
+
+.sectionWrapper{
+	display: flex;
 	flex-flow: column;
 	justify-content: center;
+	height: calc(100vh - 100px);
 }
 
 .section{
@@ -48,10 +52,6 @@
 }
 
 .categories .selectedItem{
-	color: #40bed3;
-}
-
-.categories .sectionItem:hover{
 	color: #40bed3;
 }
 

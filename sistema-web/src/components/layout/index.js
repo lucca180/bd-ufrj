@@ -1,41 +1,58 @@
 import React, { Component } from "react";
 
-import './style.css';
+import {styles} from './style.js';
 
 class Layout extends Component {
   constructor() {
     super();
     this.state = {
     }
+
+
+    // Alterar esses valores para alterar as cores do layout. 
+    // (Mexa e descubra oq cada um faz)
+    
+    this.style = styles({
+      left: "#141c25",
+      sectionColor: "#616a77",
+      secItem: "#fff",
+      selItem: "#40bed3",
+      catItem: "#818797",
+      right: '#0d171f',
+    });
+  
   }
 
 
   render() {
+    const {style} = this;
     return (
-      <div className="container">
+      <div style={style.container}>
 
-        <div className="leftColumn">
-          <div class="section">
-            <p className="sectionName">Navegar</p>
-            <p className="sectionItem selectedItem">Descobrir</p>
-            <p className="sectionItem">TV e Filmes</p>
-            <p className="sectionItem">Populares</p>
-            <p className="sectionItem">Listas</p>
-          </div>
+        <div style={style.leftColumn}>
+          <div style={style.sectionWrapper}>
+            <div style={style.section}>
+              <p style={style.sectionName}>Navegar</p>
+              <p style={style.selectedItem}>Descobrir</p>
+              <p style={style.sectionItem}>TV e Filmes</p>
+              <p style={style.sectionItem}>Populares</p>
+              <p style={style.sectionItem}>Listas</p>
+            </div>
 
-          <div class="section categories">
-            <p className="sectionName">Gêneros</p>
-            <p className="sectionItem selectedItem">Ação</p>
-            <p className="sectionItem">Comédia</p>
-            <p className="sectionItem">Super Poderes</p>
-            <p className="sectionItem">Escola</p>
-            <p className="sectionItem">Aventura</p>
-            <p className="sectionItem">Fantasia</p>
-            <p className="sectionItem">Romance</p>
+            <div style={style.section}>
+              <p style={style.sectionName}>Gêneros</p>
+              <p style={style.catItemSel}>Ação</p>
+              <p style={style.catItem}>Comédia</p>
+              <p style={style.catItem}>Super Poderes</p>
+              <p style={style.catItem}>Escola</p>
+              <p style={style.catItem}>Aventura</p>
+              <p style={style.catItem}>Fantasia</p>
+              <p style={style.catItem}>Romance</p>
+            </div>
           </div>
         </div>
 
-        <div className="rightColumn">
+        <div style={style.rightColumn}>
           {this.props.children}
         </div>
 

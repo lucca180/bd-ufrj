@@ -1,18 +1,20 @@
+charset utf8
+
 create table Usuario(
     usuarioID int,
     username varchar(64) not null,
-    genero varchar(8),
+    genero varchar(16),
     datanascimento date,
     primary key(usuarioID)
 );
 
 create table Localizacao(
     usuarioID int,
-    endereco varchar(128),
-    pais varchar(32),
-    codigopais varchar(4),
-    estado varchar(32),
-    cidade varchar(32),
+    endereco varchar(64),
+    pais varchar(128),
+    codigo_pais varchar(2),
+    estado varchar(256),
+    cidade varchar(128),
     primary key (usuarioID, endereco),
     constraint fk_localizacao_usuario_usuarioID foreign key (usuarioID) references Usuario(usuarioID)
         on delete cascade
@@ -21,10 +23,9 @@ create table Localizacao(
 
 create table ListaAnime(
     usuarioID int,
-    listaID int,
-    dias_assistindo numeric(3,2),
-    nota_media numeric(2,2),
-    primary key (usuarioID, listaID),
+    dias_assistindo float,
+    nota_media numeric(4,2),
+    primary key (usuarioID),
     constraint fk_lista_anime_usuario_usuarioID foreign key (usuarioID) references Usuario(usuarioID)
         on delete cascade
         on update cascade
@@ -39,7 +40,8 @@ create table Anime(
     ano_lancamento numeric(4,0),
     numero_episodios numeric(4,0),
     no_ar boolean,
-    origem varchar(32),
+    origem varchar(16),
+    classificacao_etaria varchar(32),
     primary key (animeID)
 );
 
@@ -49,7 +51,7 @@ create table Estudio(
 );
 
 create table Genero(
-    nome_genero varchar(32),
+    nome_genero varchar(16),
     primary key (nome_genero)
 );
 
@@ -67,7 +69,7 @@ create table AnimeEstudio(
 
 create table AnimeGenero(
     animeID int,
-    nome_genero varchar(32),
+    nome_genero varchar(16),
     primary key (animeID, nome_genero),
     constraint fk_anime_genero_animeID foreign key (animeID) references Anime(animeID)
         on delete cascade
@@ -80,7 +82,6 @@ create table AnimeGenero(
 create table AnimeListaAnime(
     animeID int,
     usuarioID int,
-    listaID int,
     nota numeric(2,0),
     anime_status numeric(1,0),
     /*
@@ -91,11 +92,11 @@ create table AnimeListaAnime(
         4: dropped
         6: plan to watch
     */
-    primary key (animeID, usuarioID, listaID),
+    primary key (animeID, usuarioID),
     constraint fk_anime_lista_anime_animeID foreign key (animeID) references Anime(animeID)
         on delete cascade
         on update cascade,
-    constraint fk_anime_lista_anime_usuarioID_listaID foreign key (usuarioID, listaID) references ListaAnime(usuarioID, listaID)
+    constraint fk_anime_lista_anime_usuarioID_listaID foreign key (usuarioID) references ListaAnime(usuarioID)
         on delete cascade
         on update cascade
 );

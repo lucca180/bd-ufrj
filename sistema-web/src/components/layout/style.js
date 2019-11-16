@@ -15,7 +15,7 @@ const defaultStyle = {
     fontFamily: 'Averta, sans-serif'
   },
   leftColumn: {
-    flex: '0 0 300px',
+    flex: '0 0 250px',
     minHeight: '100%',
     background: '#141c25',
     padding: '50px'
@@ -58,7 +58,8 @@ const defaultStyle = {
     flex: '1 1 auto',
     minHeight: '100%',
     background: '#0d171f',
-    padding: '50px'
+    padding: '50px 20px',
+    color: '#fff',
   }
 }
 

@@ -15,6 +15,10 @@ class MovieCard extends Component {
       <div className="card">
       	<img alt={name} src={url}/>
       	<p>{name}</p>
+        <div className="details">
+          <p>Ação · 23min · 2010</p>
+          <p className="ageBox">+18</p>
+        </div>
       </div>
     );
   }

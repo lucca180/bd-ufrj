@@ -15,7 +15,29 @@ class Home extends Component {
     return (
       <Layout>
         <h2>Recomendado Para Você</h2>
-        <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+        <div class="cards">
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+        </div>
       </Layout>
     );
   }

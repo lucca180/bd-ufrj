@@ -10,14 +10,14 @@ class MovieCard extends Component {
 
 
   render() {
-    const {name, url} = this.props;
+    const {nome_ingles, nome_japones, imagem, classificacao_etaria, ano_lancamento, duracao_ep, origem} = this.props.anime;
     return (
       <div className="card">
-      	<img alt={name} src={url}/>
-      	<p>{name}</p>
+      	<img alt={nome_ingles ? nome_ingles : nome_japones} src={imagem}/>
+      	<p>{nome_ingles ? nome_ingles : nome_japones}</p>
         <div className="details">
-          <p>Ação · 23min · 2010</p>
-          <p className="ageBox">+18</p>
+          <p>{origem} · {duracao_ep}min · {ano_lancamento}</p>
+          <p className="ageBox">{classificacao_etaria}</p>
         </div>
       </div>
     );

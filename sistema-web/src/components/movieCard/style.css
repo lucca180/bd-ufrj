@@ -16,7 +16,8 @@
 
 .card img{
 	width: 175px;
-	height: auto;
+	height: 250px;
+	object-fit: cover;
 }
 
 .card p {

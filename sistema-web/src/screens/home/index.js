@@ -7,36 +7,44 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
+      animes: []
     }
   }
 
+  connectDB = async () => {
+    try{
+      var res = await fetch("http://localhost:9000/homeAnimes");
+      res = await res.text();
+      res = JSON.parse(res);
+
+      console.log(res);
+
+      this.setState({
+        animes: res
+      });
+    }catch(e) {
+      console.log(e);
+    }
+  }
+
+  RenderCards = () => {
+    var cardsArr = this.state.animes.map(anime => {
+      return <MovieCard key={anime.animeID} anime={anime}/>;
+    })
+
+    return cardsArr;
+  }
+
+  componentDidMount(){
+    this.connectDB();
+  }
 
   render() {
     return (
       <Layout>
         <h2>Recomendado Para Você</h2>
-        <div class="cards">
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
-          <MovieCard name="Boku no Hero Academia" url={"https://cdn.myanimelist.net/images/anime/1315/102961.jpg"}/>
+        <div className="cards">
+          {this.state.animes.length !== 0 && <this.RenderCards/>}
         </div>
       </Layout>
     );

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import {styles} from './style.js';
 
 class Layout extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
     }
@@ -11,15 +11,16 @@ class Layout extends Component {
 
     // Alterar esses valores para alterar as cores do layout. 
     // (Mexa e descubra oq cada um faz)
+    // {
+    //   left: "#141c25",
+    //   sectionColor: "#616a77",
+    //   secItem: "#fff",
+    //   selItem: "#40bed3",
+    //   catItem: "#818797",
+    //   right: '#0d171f',
+    // }
     
-    this.style = styles({
-      left: "#141c25",
-      sectionColor: "#616a77",
-      secItem: "#fff",
-      selItem: "#40bed3",
-      catItem: "#818797",
-      right: '#0d171f',
-    });
+    this.style = styles(props.colors ? props.colors : {});
   
   }
 

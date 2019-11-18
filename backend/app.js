@@ -7,6 +7,9 @@ var cors = require("cors");
 
 var indexRouter = require('./routes/index');
 var homeAnimes = require("./routes/getHomePageAnimes");
+var searchAnimes = require("./routes/searchAnimeByName");
+var genderCount = require("./routes/getAnimeGenderCount");
+var getAnime = require("./routes/getAnimeByID");
 
 var app = express();
 
@@ -37,6 +40,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use("/homeAnimes", homeAnimes);
+app.use("/searchAnimeByName", searchAnimes);
+app.use("/getAnimeGenderCount", genderCount);
+app.use("/getAnimeByID", getAnime);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

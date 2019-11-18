@@ -1,3 +1,12 @@
+/*
+    CRITÉRIO 1: Consulta envolvendo apenas as operações de seleção e projeção;
+
+    O QUE FAZ: Dado o ID do anime, retorna tudo de 14 animes.
+
+    EXEMPLO: ENTRADA: animeID
+            SAÍDA: Usuario.genero, Count
+*/
+
 var express = require("express");
 var router = express.Router();
 

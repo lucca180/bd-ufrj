@@ -1,6 +1,4 @@
 /*
-    CRITÉRIO: nenhum
-
     O QUE FAZ: (searchbar query), essa query retorna
               uma lista de N animes que contém a string dada pela busca.
               O valor de N é dado por :limit (segundo parametro, opcional. Default = 14)

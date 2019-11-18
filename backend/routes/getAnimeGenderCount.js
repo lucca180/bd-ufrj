@@ -3,7 +3,7 @@
 
     O QUE FAZ: Dado o ID do anime, retorna a quantidade por gênero do anime
 
-    EXEMPLO: ENTRADA: animeID, N (opcional)
+    EXEMPLO: ENTRADA: animeID
             SAÍDA: Usuario.genero, Count
 */
 

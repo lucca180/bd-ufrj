@@ -29,10 +29,14 @@ class Home extends Component {
 
   RenderCards = () => {
     var cardsArr = this.state.animes.map(anime => {
-      return <MovieCard key={anime.animeID} anime={anime}/>;
+      return <MovieCard key={anime.animeID} clickF={this.goToAnime} anime={anime}/>;
     })
 
     return cardsArr;
+  }
+  
+  goToAnime = anime => {
+	this.props.history.push('/anime', anime);  
   }
 
   componentDidMount(){

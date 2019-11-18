@@ -5,7 +5,7 @@ import {styles} from './style.js';
 class Layout extends Component {
   constructor(props) {
     super();
-    this.state = {
+    this.state = {		
     }
 
 
@@ -20,13 +20,10 @@ class Layout extends Component {
     //   right: '#0d171f',
     // }
     
-    this.style = styles(props.colors ? props.colors : {});
-  
   }
 
-
   render() {
-    const {style} = this;
+    var style =  styles(this.props.colors ? this.props.colors : {})
     return (
       <div style={style.container}>
 

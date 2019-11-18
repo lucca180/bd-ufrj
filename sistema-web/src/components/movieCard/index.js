@@ -12,7 +12,7 @@ class MovieCard extends Component {
   render() {
     const {nome_ingles, nome_japones, imagem, classificacao_etaria, ano_lancamento, duracao_ep, origem} = this.props.anime;
     return (
-      <div className="card">
+      <div onClick={() => this.props.clickF(this.props.anime)} className="card">
       	<img alt={nome_ingles ? nome_ingles : nome_japones} src={imagem}/>
       	<p>{nome_ingles ? nome_ingles : nome_japones}</p>
         <div className="details">

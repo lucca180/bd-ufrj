@@ -4,20 +4,20 @@
               O valor de N é dado por :limit (segundo parametro, opcional. Default = 14)
 
     EXEMPLO: ENTRADA: naruto
-            SAÍDA: animeID, nome_ingles (dos animes que têm naruto no nome)
+            SAÍDA: tudo (dos animes que têm naruto no nome)
 */
 
 var express = require("express");
 var router = express.Router();
 
 router.get("/:searchName/", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute("SELECT animeID, nome_ingles FROM Anime WHERE nome_ingles LIKE '%"+ req.params.searchName +"%' LIMIT 14;");
+  	const [rows, fields] = await res.locals.connection.execute("SELECT * FROM Anime WHERE nome_ingles LIKE '%"+ req.params.searchName +"%' LIMIT 14;");
     //console.log(req.params.searchName);
     res.send(JSON.stringify(rows));
 });
 
 router.get("/:searchName/:limit", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute("SELECT animeID, nome_ingles FROM Anime WHERE nome_ingles LIKE '%"+ req.params.searchName +"%' LIMIT "+ req.params.limit + ";");
+  	const [rows, fields] = await res.locals.connection.execute("SELECT * FROM Anime WHERE nome_ingles LIKE '%"+ req.params.searchName +"%' LIMIT "+ req.params.limit + ";");
     //console.log(req.params.searchName);
     res.send(JSON.stringify(rows));
 });

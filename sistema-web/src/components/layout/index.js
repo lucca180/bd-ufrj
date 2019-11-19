@@ -6,11 +6,10 @@ import {styles} from './style.js';
 class Layout extends Component {
   constructor(props) {
     super();
-    this.state = {		
+    this.state = {
     }
 
-
-    // Alterar esses valores para alterar as cores do layout. 
+    // Alterar esses valores para alterar as cores do layout.
     // (Mexa e descubra oq cada um faz)
     // {
     //   left: "#141c25",
@@ -20,7 +19,10 @@ class Layout extends Component {
     //   catItem: "#818797",
     //   right: '#0d171f',
     // }
-    
+  }
+
+  goToSearch = query => {
+    this.props.history.push('/search/'+query)
   }
 
   render() {
@@ -29,7 +31,7 @@ class Layout extends Component {
       <div style={style.container}>
 
         <div style={style.leftColumn}>
-          <SearchBar/>
+          <SearchBar searchFunction={this.goToSearch}/>
           <div style={style.sectionWrapper}>
             <div style={style.section}>
               <p style={style.sectionName}>Navegar</p>

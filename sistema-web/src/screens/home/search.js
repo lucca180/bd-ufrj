@@ -3,7 +3,7 @@ import Layout from '../../components/layout';
 import MovieCard from '../../components/movieCard';
 
 import './style.css';
-class Home extends Component {
+class Search extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,7 +13,8 @@ class Home extends Component {
 
   connectDB = async () => {
     try{
-      var res = await fetch("http://localhost:9000/homeAnimes");
+      const {query} = this.props.match.params;
+      var res = await fetch("http://localhost:9000/searchAnimeByName/"+query);
       res = await res.text();
       res = JSON.parse(res);
 
@@ -36,7 +37,7 @@ class Home extends Component {
   }
 
   goToAnime = anime => {
-	this.props.history.push('/anime/'+anime.animeID, anime);
+	   this.props.history.push('/anime/'+anime.animeID, anime);
   }
 
   componentDidMount(){
@@ -44,9 +45,11 @@ class Home extends Component {
   }
 
   render() {
+    const {query} = this.props.match.params;
+
     return (
       <Layout history={this.props.history}>
-        <h2>Recomendado Para Você</h2>
+        <h2>Resultados da sua pesquisa por {query}</h2>
         <div className="cards">
           {this.state.animes.length !== 0 && <this.RenderCards/>}
         </div>
@@ -54,4 +57,4 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+export default Search;

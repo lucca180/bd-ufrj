@@ -6,7 +6,7 @@ import AnimePage from '../animePage'
 const App = () => (
   <div>
       <Route exact path="/" component={Home} />
-      <Route exact path="/anime" component={AnimePage} />
+      <Route exact path="/anime/:id" component={AnimePage} />
   </div>
 )
 

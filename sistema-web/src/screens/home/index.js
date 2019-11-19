@@ -36,7 +36,7 @@ class Home extends Component {
   }
   
   goToAnime = anime => {
-	this.props.history.push('/anime', anime);  
+	this.props.history.push('/anime/'+anime.animeID, anime);  
   }
 
   componentDidMount(){

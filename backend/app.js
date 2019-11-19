@@ -24,7 +24,7 @@ app.use(async (req, res, next) => {
 	res.locals.connection = await mysql.createConnection({
 		host     : 'localhost',
 		user     : 'root',
-		password : 'mysqldcc',
+		password : '',
 		database : 'bd_ufrj'
 	});
 	res.locals.connection.connect();

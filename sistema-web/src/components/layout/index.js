@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import SearchBar from '../searchBar';
 import {styles} from './style.js';
 
 class Layout extends Component {
@@ -28,6 +29,7 @@ class Layout extends Component {
       <div style={style.container}>
 
         <div style={style.leftColumn}>
+          <SearchBar/>
           <div style={style.sectionWrapper}>
             <div style={style.section}>
               <p style={style.sectionName}>Navegar</p>

@@ -1,0 +1,30 @@
+.title{
+	font-size: 4rem;
+	margin: 1rem 0;
+}
+
+.infos{
+	font-weight: lighter;
+}
+
+.score{
+	font-size: 1.3rem;
+	display: inline-block;
+}
+
+.animeInfos{
+	font-size: 1.1rem;
+	display: inline-block;
+	margin-left: 5rem;
+	opacity: 0.7;
+}
+
+.dot{
+	margin: 0 .5rem;
+}
+
+.ageBox{
+	display: inline-block;
+    border: 1px solid;
+    padding: 5px;
+}

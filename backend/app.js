@@ -11,6 +11,9 @@ var searchAnimes = require("./routes/searchAnimeByName");
 var genderCount = require("./routes/getAnimeGenderCount");
 var getAnime = require("./routes/getAnimeByID");
 var getCountryRank = require("./routes/getAnimeCountryRank");
+var getScoreRank = require("./routes/getAnimeScoreRank");
+var getScore = require("./routes/getAnimeScore")
+var getFromStudio = require("./routes/getFromStudio");
 
 var app = express();
 
@@ -45,6 +48,9 @@ app.use("/searchAnimeByName", searchAnimes);
 app.use("/getAnimeGenderCount", genderCount);
 app.use("/getAnimeByID", getAnime);
 app.use("/getAnimeCountryRank", getCountryRank);
+app.use("/getAnimeScoreRank", getScoreRank);
+app.use("/getAnimeScore", getScore);
+app.use("/getFromStudio", getFromStudio);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

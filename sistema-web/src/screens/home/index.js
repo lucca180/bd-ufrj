@@ -46,7 +46,7 @@ class Home extends Component {
   render() {
     return (
       <Layout history={this.props.history}>
-        <h2>Recomendado Para Você</h2>
+        <h2>Página Inicial</h2>
         <div className="cards">
           {this.state.animes.length !== 0 && <this.RenderCards/>}
         </div>

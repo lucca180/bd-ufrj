@@ -3,8 +3,22 @@ import {
   PieChart, Pie, Legend, Tooltip, Cell
 } from 'recharts';
 
-const COLORS = ['#FF8042', '#0088FE', '#00C49F', '#FFBB28', ];
+const COLORS = ['#e91e63', '#40bed3', '#9e9e9e', ];
 
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+}) => {
+   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 
 export default class PieView extends PureComponent {
@@ -14,7 +28,7 @@ export default class PieView extends PureComponent {
 
     return (
       <PieChart width={400} height={270}>
-        <Pie dataKey="genderCount" nameKey="gender" data={data} outerRadius={80} label>
+        <Pie dataKey="genderCount" nameKey="gender" data={data} labelLine={false} outerRadius={80} label={renderCustomizedLabel}>
 	        {
 	        	data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
 	        }

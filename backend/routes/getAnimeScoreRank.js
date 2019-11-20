@@ -13,12 +13,12 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute("SELECT Anime.*, AVG(nota) as average from AnimeListaAnime natural join Anime group by animeID order by average desc LIMIT 14;");
+  	const [rows, fields] = await res.locals.connection.execute("SELECT Anime.*, AVG(nota) as average from AnimeListaAnime natural join Anime where nota >= 1 group by animeID order by average desc LIMIT 14;");
     res.send(JSON.stringify(rows));
 });
 
 router.get("/:limit", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute("SELECT Anime.*, AVG(nota) as average from AnimeListaAnime natural join Anime group by animeID order by average desc LIMIT " + req.params.limit + ";");
+  	const [rows, fields] = await res.locals.connection.execute("SELECT Anime.*, AVG(nota) as average from AnimeListaAnime natural join Anime where nota >= 1 group by animeID order by average desc LIMIT " + req.params.limit + ";");
     res.send(JSON.stringify(rows));
 });
 

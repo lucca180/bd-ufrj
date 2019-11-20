@@ -40,6 +40,7 @@ class Layout extends Component {
             <div style={style.section}>
               <p style={style.sectionName}>Navegar</p>
               <p onClick={() => this.goTo("/")} style={style.selectedItem}>Início</p>
+              <p onClick={() => this.goTo("/popular")}style={style.sectionItem}>Populares</p>
               <p onClick={() => this.goTo("/top")}style={style.sectionItem}>TOP 25</p>
             </div>
 

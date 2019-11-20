@@ -10,6 +10,7 @@ var homeAnimes = require("./routes/getHomePageAnimes");
 var searchAnimes = require("./routes/searchAnimeByName");
 
 var getAnime = require("./routes/getAnimeByID");
+var getByGenre = require("./routes/getAnimeByGenre");
 var getGenre = require("./routes/getGenreByID");
 var getScore = require("./routes/getScoreByID")
 var getStudio = require("./routes/getStudioByID");
@@ -19,7 +20,7 @@ var genderCount = require("./routes/getAnimeGenderCount");
 var getViewerRank = require("./routes/getAnimeViewerRank");
 var getScoreRank = require("./routes/getAnimeScoreRank");
 var getCountryRank = require("./routes/getAnimeCountryRank");
-
+var getGenreRank = require("./routes/getGenreQtRank");
 
 var app = express();
 
@@ -34,7 +35,7 @@ app.use(async (req, res, next) => {
 	res.locals.connection = await mysql.createConnection({
 		host     : 'localhost',
 		user     : 'root',
-		password : '',
+		password : 'senha',
 		database : 'bd_ufrj'
 	});
 	res.locals.connection.connect();
@@ -54,6 +55,7 @@ app.use("/homeAnimes", homeAnimes);
 app.use("/searchAnimeByName", searchAnimes);
 
 app.use("/getAnimeByID", getAnime);
+app.use("/getAnimeByGenre", getByGenre);
 app.use("/getGenreByID", getGenre);
 app.use("/getScoreByID", getScore);
 app.use("/getStudioByID", getStudio);
@@ -63,6 +65,7 @@ app.use("/getAnimeGenderCount", genderCount);
 app.use("/getAnimeViewerRank", getViewerRank);
 app.use("/getAnimeScoreRank", getScoreRank);
 app.use("/getAnimeCountryRank", getCountryRank);
+app.use("/getGenreQtRank", getGenreRank);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

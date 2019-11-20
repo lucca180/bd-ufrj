@@ -11,7 +11,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute('SELECT * from Anime LIMIT 14;');
+  	const [rows, fields] = await res.locals.connection.execute('SELECT * from Anime ORDER BY RAND() LIMIT 14;');
     res.send(JSON.stringify(rows));
 });
 

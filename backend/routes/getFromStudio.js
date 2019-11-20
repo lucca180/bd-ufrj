@@ -1,5 +1,5 @@
 /*
-    CRITÉRIOS 2.2: consulta com 2 relações e Junção Externa
+    CRITÉRIOS 2.2 & 6: consulta com 2 relações com Junção Externa & Subconsulta aninhada
 
     O QUE FAZ: Dado o animeID, retorna N animes produzidos pelo mesmo estudio que o produziu.
 

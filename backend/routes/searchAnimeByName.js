@@ -4,7 +4,7 @@
               O valor de N é dado por :limit (segundo parametro, opcional. Default = 14)
 
     EXEMPLO: ENTRADA: naruto
-            SAÍDA: tudo (dos animes que têm naruto no nome)
+            SAÍDA: Anime.* (dos animes que têm naruto no nome)
 */
 
 var express = require("express");

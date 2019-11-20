@@ -1,5 +1,5 @@
 /*
-    CRITÉRIOS 3 & 5: consulta com 3 relações & função de agregação
+    CRITÉRIOS 3 & 5 & 6: consulta com 3 relações & função de agregação & subconsulta aninhada
 
     O QUE FAZ: Dado o ID do anime, retorna a quantidade de pessoas que o assistem por país.
 

@@ -4,16 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
-
 var indexRouter = require('./routes/index');
+
 var homeAnimes = require("./routes/getHomePageAnimes");
 var searchAnimes = require("./routes/searchAnimeByName");
-var genderCount = require("./routes/getAnimeGenderCount");
+
 var getAnime = require("./routes/getAnimeByID");
-var getCountryRank = require("./routes/getAnimeCountryRank");
-var getScoreRank = require("./routes/getAnimeScoreRank");
-var getScore = require("./routes/getAnimeScore")
+var getGenre = require("./routes/getGenreByID");
+var getScore = require("./routes/getScoreByID")
+var getStudio = require("./routes/getStudioByID");
+
 var getFromStudio = require("./routes/getFromStudio");
+var genderCount = require("./routes/getAnimeGenderCount");
+var getViewerRank = require("./routes/getAnimeViewerRank");
+var getScoreRank = require("./routes/getAnimeScoreRank");
+var getCountryRank = require("./routes/getAnimeCountryRank");
+
 
 var app = express();
 
@@ -45,12 +51,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use("/homeAnimes", homeAnimes);
 app.use("/searchAnimeByName", searchAnimes);
-app.use("/getAnimeGenderCount", genderCount);
+
 app.use("/getAnimeByID", getAnime);
-app.use("/getAnimeCountryRank", getCountryRank);
-app.use("/getAnimeScoreRank", getScoreRank);
-app.use("/getAnimeScore", getScore);
+app.use("/getGenreByID", getGenre);
+app.use("/getScoreByID", getScore);
+app.use("/getStudioByID", getStudio);
+
 app.use("/getFromStudio", getFromStudio);
+app.use("/getAnimeGenderCount", genderCount);
+app.use("/getAnimeViewerRank", getViewerRank);
+app.use("/getAnimeScoreRank", getScoreRank);
+app.use("/getAnimeCountryRank", getCountryRank);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

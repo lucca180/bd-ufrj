@@ -18,7 +18,7 @@ router.get("/:animeID", async (req, res, next) => {
 });
 
 router.get("/:animeID/:limit", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute("select nome_estudio, Anime.* from AnimeEstudio left outer join Anime on AnimeEstudio.animeID = Anime.animeID where nome_estudio = some (select nome_estudio from AnimeEstudio where animeID = " + req.params.animeID + ")) LIMIT " + req.param.limit);
+  	const [rows, fields] = await res.locals.connection.execute("select nome_estudio, Anime.* from AnimeEstudio left outer join Anime on AnimeEstudio.animeID = Anime.animeID where nome_estudio = some (select nome_estudio from AnimeEstudio where animeID = " + req.params.animeID + ") LIMIT " + req.params.limit + ";");
     res.send(JSON.stringify(rows));
 });
 

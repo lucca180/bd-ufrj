@@ -21,6 +21,10 @@ class Layout extends Component {
     // }
   }
 
+  goTo = where => {
+    this.props.history.push(where)
+  }
+
   goToSearch = query => {
     this.props.history.push('/search/'+query)
   }
@@ -35,15 +39,13 @@ class Layout extends Component {
           <div style={style.sectionWrapper}>
             <div style={style.section}>
               <p style={style.sectionName}>Navegar</p>
-              <p style={style.selectedItem}>Descobrir</p>
-              <p style={style.sectionItem}>TV e Filmes</p>
-              <p style={style.sectionItem}>Populares</p>
-              <p style={style.sectionItem}>Listas</p>
+              <p onClick={() => this.goTo("/")} style={style.selectedItem}>Início</p>
+              <p onClick={() => this.goTo("/top")}style={style.sectionItem}>TOP 25</p>
             </div>
 
             <div style={style.section}>
               <p style={style.sectionName}>Gêneros</p>
-              <p style={style.catItemSel}>Ação</p>
+              <p style={style.catItemSel}>Todos</p>
               <p style={style.catItem}>Comédia</p>
               <p style={style.catItem}>Super Poderes</p>
               <p style={style.catItem}>Escola</p>

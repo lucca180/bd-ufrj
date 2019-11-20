@@ -1,9 +1,24 @@
+.headerInfos{
+	display: flex;
+    align-items: center;
+}
+
+.headerInfos img{
+	width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.infos{
+	margin-left: 1rem;
+}
+
 .title{
 	font-size: 4rem;
 	margin: 1rem 0;
 }
 
-.infos{
+.otherInfos{
 	font-weight: lighter;
 }
 
@@ -15,7 +30,7 @@
 .animeInfos{
 	font-size: 1.1rem;
 	display: inline-block;
-	margin-left: 5rem;
+	margin-left: 3rem;
 	opacity: 0.7;
 }
 
@@ -27,4 +42,30 @@
 	display: inline-block;
     border: 1px solid;
     padding: 5px;
+}
+
+.content{
+	margin-top: 2.5rem;
+}
+
+.charts{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartBox{
+	display: inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2.5rem;
+}
+
+.sugestions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	margin-top: 3rem;
 }

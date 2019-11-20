@@ -30,10 +30,11 @@ app.set('view engine', 'ejs');
 var mysql = require('mysql2/promise');
 //Database connection
 app.use(async (req, res, next) => {
+	console.log("conectando")
 	res.locals.connection = await mysql.createConnection({
 		host     : 'localhost',
 		user     : 'root',
-		password : 'mysqldcc',
+		password : '',
 		database : 'bd_ufrj'
 	});
 	res.locals.connection.connect();

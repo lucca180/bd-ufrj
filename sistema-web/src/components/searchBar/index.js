@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// import './style.css';
+import './style.css';
 class SearchBar extends Component {
   constructor(props) {
     super();
@@ -17,7 +17,8 @@ class SearchBar extends Component {
 
   catchReturn = e => {
   	if(e.key === 'Enter'){
-      e.preventDefault(); // Ensure it is only this code that rusn
+      e.preventDefault();
+      if(this.state.searchQuery === '') return;
       this.props.searchFunction(this.state.searchQuery);
   	}
   }
@@ -25,9 +26,9 @@ class SearchBar extends Component {
   	render() {
       const {searchQuery} = this.state;
 	    return (
-	    	<div style={{display: 'inline', maxWidth: 150}}>
-	      		<input onKeyPress={this.catchReturn} type="search" value={searchQuery} onChange={this.handleChange} placeholder="Pesquisar"/>
-	      	</div>
+          <div className="container__item">
+            <input onChange={this.handleChange} value={searchQuery} onKeyPress={this.catchReturn} type="search" className="form__field" placeholder="Pesquisar" />
+          </div>
 	    );
   	}
 }

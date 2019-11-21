@@ -12,11 +12,13 @@ var router = express.Router();
 
 router.get("/:searchName/", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT * FROM Anime WHERE nome_ingles OR nome_japones LIKE '%"+ req.params.searchName +"%' LIMIT 14;");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 
 router.get("/:searchName/:limit", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT * FROM Anime WHERE nome_ingles OR nome_japones LIKE '%"+ req.params.searchName +"%' LIMIT "+ req.params.limit + ";");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

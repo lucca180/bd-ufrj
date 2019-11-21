@@ -44,6 +44,12 @@ class Search extends Component {
     this.connectDB();
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.match.params.query !== prevProps.match.params.query){
+      this.connectDB();
+    }
+  }
+
   render() {
     const {query} = this.props.match.params;
 

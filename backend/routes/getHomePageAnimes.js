@@ -12,7 +12,15 @@ var router = express.Router();
 
 router.get("/", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute('SELECT * from Anime where animeID not in (SELECT animeID from Anime where classificacao_etaria = "Rx - Hentai") ORDER BY RAND() LIMIT 14;');
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
+
+router.get("/:limit", async (req, res, next) => {
+  	const [rows, fields] = await res.locals.connection.execute('SELECT * from Anime where animeID not in (SELECT animeID from Anime where classificacao_etaria = "Rx - Hentai") ORDER BY RAND() LIMIT '+ req.params.limit +';');
+    res.locals.connection.end();
+    res.send(JSON.stringify(rows));
+});
+
 
 module.exports = router;

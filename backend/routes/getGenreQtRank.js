@@ -14,11 +14,13 @@ var router = express.Router();
 
 router.get("/", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("select nome_genero, count(*) as nAnimes from AnimeGenero group by nome_genero order by nAnimes desc LIMIT 14;");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 
 router.get("/:limit", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("select nome_genero, count(*) as nAnimes from AnimeGenero group by nome_genero order by nAnimes desc LIMIT " + req.params.limit + ";");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

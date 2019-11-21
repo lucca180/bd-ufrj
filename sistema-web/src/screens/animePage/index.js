@@ -82,6 +82,7 @@ class AnimePage extends Component {
 	})
 
 	this.fetchOtherData(anime.animeID);
+  window.scrollTo(0, 0);
 
   }
 
@@ -91,6 +92,15 @@ class AnimePage extends Component {
     })
 
     return cardsArr;
+  }
+
+  handle404 = () => {
+    this.setState({
+      anime: {
+        ...this.state.anime,
+        imagem: "https://via.placeholder.com/250x300"
+      }
+    })
   }
 
   componentDidMount(){
@@ -113,7 +123,7 @@ class AnimePage extends Component {
     return (
       <Layout history={this.props.history}>
         <div className="headerInfos">
-       		<img alt={nome_japones} src={imagem}/>
+       		<img onError={this.handle404} alt={nome_japones} src={imagem}/>
        		<div className="infos">
 		        <h1 className="title">{nome_ingles ? nome_ingles : nome_japones}</h1>
 		        <div className="otherInfos">
@@ -144,7 +154,7 @@ class AnimePage extends Component {
 		    </div>
 		    <div className="sugestions">
 		    	<h2>Animes do Mesmo Estúdio</h2>
-		    	<div><this.RenderCards/></div>
+		    	<div className="cardList"><this.RenderCards/></div>
 		    </div>
 	    </div>
       </Layout>

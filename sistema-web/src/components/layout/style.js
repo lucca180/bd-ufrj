@@ -18,13 +18,14 @@ const defaultStyle = {
     flex: '0 0 250px',
     minHeight: '100%',
     background: '#141c25',
-    padding: '50px'
+    padding: '50px 27px'
   },
   sectionWrapper: {
     display: 'flex',
     flexFlow: 'column',
     justifyContent: 'center',
-    height: 'calc(100vh - 100px)'
+    height: 'calc(100vh - 100px)',
+    margin: '0 23px'
   },
   section: {},
   sectionName: {

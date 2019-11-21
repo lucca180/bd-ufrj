@@ -12,6 +12,7 @@ var router = express.Router();
 
 router.get("/:animeID", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT * from Anime WHERE animeID = " + req.params.animeID +";");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

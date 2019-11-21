@@ -27,6 +27,7 @@ var router = express.Router();
 
 router.get("/:animeID/", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT (CASE WHEN genero = 'Male' THEN 'Masculino' WHEN genero = 'Female' THEN 'Feminino' WHEN genero = 'Non-Binary' THEN 'Não-Binário' ELSE 'Não Definido' END) as gender, count(genero) as genderCount from Usuario natural join ListaAnime natural join (select * from AnimeListaAnime where animeID = "+ req.params.animeID +") A group by genero, A.animeID;");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

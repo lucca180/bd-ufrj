@@ -7,6 +7,7 @@ class Layout extends Component {
   constructor(props) {
     super();
     this.state = {
+      genres: [],
     }
 
     // Alterar esses valores para alterar as cores do layout.
@@ -19,6 +20,32 @@ class Layout extends Component {
     //   catItem: "#818797",
     //   right: '#0d171f',
     // }
+
+    this.style =  styles(props.colors ? props.colors : {})
+  }
+
+  getGenreList = async () => {
+    try{
+      var res = await fetch("http://localhost:9000/getGenreQtRank/10");
+      res = await res.text();
+      res = JSON.parse(res);
+
+      console.log(res);
+
+      this.setState({
+        genres: res
+      });
+    }catch(e) {
+      console.log(e);
+    }
+  }
+
+  RenderGenres = () => {
+    var genreArr = this.state.genres.map(genre => {
+      return <p onClick={() => this.goTo("/genre/"+genre.nome_genero)} key={genre.nome_genero} style={this.style.catItem}>{genre.nome_genero}</p>;
+    })
+
+    return genreArr;
   }
 
   goTo = where => {
@@ -29,8 +56,12 @@ class Layout extends Component {
     this.props.history.push('/search/'+query)
   }
 
+  componentDidMount(){
+    this.getGenreList()
+  }
+
   render() {
-    var style =  styles(this.props.colors ? this.props.colors : {})
+    const {style} = this;
     return (
       <div style={style.container}>
 
@@ -46,13 +77,8 @@ class Layout extends Component {
 
             <div style={style.section}>
               <p style={style.sectionName}>Gêneros</p>
-              <p style={style.catItemSel}>Todos</p>
-              <p style={style.catItem}>Comédia</p>
-              <p style={style.catItem}>Super Poderes</p>
-              <p style={style.catItem}>Escola</p>
-              <p style={style.catItem}>Aventura</p>
-              <p style={style.catItem}>Fantasia</p>
-              <p style={style.catItem}>Romance</p>
+              <p onClick={() => this.goTo("/")} style={style.catItemSel}>Todos</p>
+              <this.RenderGenres/>
             </div>
           </div>
         </div>

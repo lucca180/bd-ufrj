@@ -3,7 +3,7 @@ import Layout from '../../components/layout';
 import MovieCard from '../../components/movieCard';
 
 import './style.css';
-class Home extends Component {
+class Genre extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,7 +13,8 @@ class Home extends Component {
 
   connectDB = async () => {
     try{
-      var res = await fetch("http://localhost:9000/homeAnimes/18");
+      var name = this.props.match.params.name;
+      var res = await fetch("http://localhost:9000/getAnimeByGenre/"+name+"/25");
       res = await res.text();
       res = JSON.parse(res);
 
@@ -36,17 +37,25 @@ class Home extends Component {
   }
 
   goToAnime = anime => {
-	this.props.history.push('/anime/'+anime.animeID, anime);
+    this.props.history.push('/anime/'+anime.animeID, anime);
   }
 
   componentDidMount(){
+    console.log(this.props)
     this.connectDB();
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.match.params.name !== prevProps.match.params.name){
+      this.connectDB();
+    }
+  }
+
   render() {
+
     return (
       <Layout history={this.props.history}>
-        <h2>Página Inicial</h2>
+        <h2>{this.props.match.params.name ? this.props.match.params.name : ''} Animes</h2>
         <div className="cards">
           {this.state.animes.length !== 0 && <this.RenderCards/>}
         </div>
@@ -54,4 +63,4 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+export default Genre;

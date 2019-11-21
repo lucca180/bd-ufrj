@@ -12,11 +12,13 @@ var router = express.Router();
 
 router.get("/", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT Anime.*, count(usuarioID) as viewers from Anime natural join AnimeListaAnime natural Join ListaAnime group by animeID ORDER BY viewers DESC LIMIT 14;");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 
 router.get("/:limit", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT Anime.*, count(usuarioID) as viewers from Anime natural join AnimeListaAnime natural Join ListaAnime group by animeID ORDER BY viewers DESC LIMIT " + req.params.limit + ";");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

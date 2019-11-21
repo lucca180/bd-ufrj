@@ -12,11 +12,13 @@ var router = express.Router();
 
 router.get("/:nome_genero", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("select Anime.* from AnimeGenero natural join Anime where nome_genero = \""+ req.params.nome_genero +"\" LIMIT 14;");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 
 router.get("/:nome_genero/:limit", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("select Anime.* from AnimeGenero natural join Anime where nome_genero = \""+ req.params.nome_genero +"\" LIMIT " + req.params.limit + ";");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

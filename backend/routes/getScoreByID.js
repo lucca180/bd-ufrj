@@ -13,6 +13,7 @@ var router = express.Router();
 
 router.get("/:animeID", async (req, res, next) => {
   	const [rows, fields] = await res.locals.connection.execute("SELECT AVG(nota) from AnimeListaAnime natural join Anime where animeID = " + req.params.animeID +" and nota >= 1;");
+    res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });
 

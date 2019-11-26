@@ -11,7 +11,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/:searchName/", async (req, res, next) => {
-  	const [rows, fields] = await res.locals.connection.execute("SELECT * FROM Anime WHERE nome_ingles OR nome_japones LIKE '%"+ req.params.searchName +"%' LIMIT 14;");
+  	const [rows, fields] = await res.locals.connection.execute("SELECT * FROM Anime WHERE nome_ingles LIKE '%"+ req.params.searchName +"%' OR nome_japones LIKE '%"+ req.params.searchName +"%' LIMIT 14;");
     res.locals.connection.end();
     res.send(JSON.stringify(rows));
 });

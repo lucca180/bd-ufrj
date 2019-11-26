@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
+import Placeholder from '../../assets/placeholder.png';
+
 import './style.css';
+
 class MovieCard extends Component {
   constructor(props) {
     super();
@@ -13,7 +16,7 @@ class MovieCard extends Component {
     this.setState({
       anime: {
         ...this.state.anime,
-        imagem: "https://via.placeholder.com/250x300"
+        imagem: Placeholder
       }
     })
   }
@@ -27,7 +30,7 @@ class MovieCard extends Component {
       	<p>{nome_ingles ? nome_ingles : nome_japones}</p>
         <div className="details">
           <p>{origem} · {duracao_ep}min · {ano_lancamento}</p>
-          <p className="ageBox">{classificacao_etaria}</p>
+          <p className="ageBox">{classificacao_etaria ? classificacao_etaria : "Não Classificado"}</p>
         </div>
       </div>
     );

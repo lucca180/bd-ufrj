@@ -26,7 +26,7 @@ class Layout extends Component {
 
   getGenreList = async () => {
     try{
-      var res = await fetch("http://localhost:9000/getGenreQtRank/10");
+      var res = await fetch("http://localhost:9000/getGenreQtRank/7");
       res = await res.text();
       res = JSON.parse(res);
 

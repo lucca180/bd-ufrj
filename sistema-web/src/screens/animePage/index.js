@@ -5,6 +5,8 @@ import PieView from '../../components/charts/pie.js';
 import BarView from '../../components/charts/bar.js';
 import MovieCard from '../../components/movieCard';
 
+import Placeholder from '../../assets/placeholder.png';
+
 import './style.css';
 class AnimePage extends Component {
   constructor(props) {
@@ -98,7 +100,7 @@ class AnimePage extends Component {
     this.setState({
       anime: {
         ...this.state.anime,
-        imagem: "https://via.placeholder.com/250x300"
+        imagem: Placeholder
       }
     })
   }
@@ -136,7 +138,7 @@ class AnimePage extends Component {
 		        		{ano_lancamento} <span className="dot">·</span>
 		        		{studios} <span className="dot">·</span>
 		        		{no_ar ? "Transmitindo" : "Finalizado"} <span className="dot">·</span> 
-		        		<span className="ageBox">{classificacao_etaria}</span>
+		        		<span className="ageBox">{classificacao_etaria ? classificacao_etaria : "Não Classificado"}</span>
 		        	</div>
 		        </div>
 		    </div>
